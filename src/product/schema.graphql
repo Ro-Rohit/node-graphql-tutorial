@@ -1,0 +1,28 @@
+type product{
+    id:Int!
+    name:String!
+    description:String!
+    price:Int!
+}
+
+input productInput {
+    name:String
+    description:String
+    price:Int
+}
+
+type Query{
+    getProducts: [product]!
+    getProduct(id:Int!): product
+    filterProductByPrice(min:Int!, max:Int!) : [product]!
+
+}
+
+
+
+type Mutation {
+    createProduct(data:productInput!): [product!]!
+    removeProduct(id:Int!): [product]!
+    updateProduct(id:Int!, data:productInput!) : [product]!
+}
+
